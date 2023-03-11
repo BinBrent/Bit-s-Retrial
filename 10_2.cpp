@@ -76,31 +76,31 @@ int dealWithNum(string& input, int left, int right)
 	return res;
 }
 
-int main()
-{
-	stack<char> op_stack;
-	stack<double> num_stack;
-	string input;
-	getline(cin, input);
-	int left = 0;
-	int num = 0;
-	int right = 1;
-	while (right < input.size()) {
-		if (input[left] >= '0' && input[left] <= '9') {
-			while (right < input.size() && input[right] >= '0' && input[right] <= '9')
-				right++;
-			num_stack.push(dealWithNum(input, left, right));
-			left = right;
-		}
-		else {
-			dealWithOp(input[left], op_stack, num_stack);
-			left++, right++;
-		}
-	}
-	while (!op_stack.empty()) {
-		calculate(op_stack.top(), num_stack);
-		op_stack.pop();
-	}
-	cout << num_stack.top();
-	return 0;
-}
+//int main()
+//{
+//	stack<char> op_stack;
+//	stack<double> num_stack;
+//	string input;
+//	getline(cin, input);
+//	int left = 0;
+//	int num = 0;
+//	int right = 1;
+//	while (right < input.size()) {
+//		if (input[left] >= '0' && input[left] <= '9') {
+//			while (right < input.size() && input[right] >= '0' && input[right] <= '9')
+//				right++;
+//			num_stack.push(dealWithNum(input, left, right));
+//			left = right;
+//		}
+//		else {
+//			dealWithOp(input[left], op_stack, num_stack);
+//			left++, right++;
+//		}
+//	}
+//	while (!op_stack.empty()) {
+//		calculate(op_stack.top(), num_stack);
+//		op_stack.pop();
+//	}
+//	cout << num_stack.top();
+//	return 0;
+//}
